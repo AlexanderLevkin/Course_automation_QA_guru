@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "qa-guru-course"
+version = "0.1.0"
+description = "automation testing course"
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+packages = [{include = "qa_guru_course"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
