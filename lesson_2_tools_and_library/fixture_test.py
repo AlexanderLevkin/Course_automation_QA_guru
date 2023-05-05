@@ -1,21 +1,17 @@
-import pytest
+from selene import have, be
 
 
-@pytest.fixture()
-def open_browser():
-    b = "browser"
-    yield "browser"
+def test_google_search_positive(browser):
+    search = 'selene python'
+    expected_result = 'yashaka/selene: User-oriented Web UI browser tests in Python'
+
+    browser.element('[name="q"]').should(be.blank).type(search).press_enter()
+    browser.element('[id="search"]').should(have.text(expected_result))
 
 
-@pytest.fixture()
-def create_user(open_browser):
-    return 35
+def test_google_search_negative(browser):
+    search = 'iabsiujfokjaospfjaigfnioasjgoksamngoiasmg'
+    expected_result = 'Результатов: примерно 0'
 
-
-@pytest.fixture()
-def test_body(open_browser):
-    pass
-    # Перейти на страницу логина
-    # Вывести логин и пароль
-    # Нажать ОК
-    # Убедится что мы перешли на страницу профиля
+    browser.element('[name="q"]').should(be.blank).type(search).press_enter()
+    browser.element('div#result-stats').should(have.text(expected_result))
