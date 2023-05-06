@@ -1,12 +1,18 @@
+from typing import Literal, Callable
+
 import pytest
 from selene.support.shared import browser as selene_browser
+from selene import Browser, Config
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.firefox.service import Service as FirefoxService
+from webdriver_manager.firefox import GeckoDriverManager
 
 
 @pytest.fixture()
 def url():
-    return "https://www.google.com/"
+    return 'https://demoqa.com/automation-practice-form'
 
 
 @pytest.fixture()
