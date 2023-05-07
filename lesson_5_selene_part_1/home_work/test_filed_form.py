@@ -47,6 +47,7 @@ def test_student_registration_form(browser_set):
         '1234567891',
         'HellloHello',
         'Republic of Belarus'
+
     ))
 
 
