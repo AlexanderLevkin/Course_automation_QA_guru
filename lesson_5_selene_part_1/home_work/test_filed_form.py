@@ -1,30 +1,50 @@
+import os
+
 from selene import command, have, browser
 
 
-def test_filed_form(browser_set):
-    browser_set.element('#firstName').type("Alexander")
-    browser_set.element('#lastName').type("QA")
-    browser_set.element('#userEmail').type("testcase@gmail.com")
-    browser_set.element('[for="gender-radio-1"]').click()
+def test_student_registration_form(browser_set):
+    # WHEN
+    browser_set.element('#firstName').type('Ivan')
+    browser_set.element('#lastName').type('Ivanov')
+    browser_set.element('#userEmail').type('testcase@gmail.com')
+    browser_set.all('[name=gender]').element_by(have.value('Male')).element('..').click()  # this is Xpath
+    '''
+    browser_set.all('[name=gender]').element_by(have.value('Female')).element('./folowing-sibling::*').click()
+    browser_set.element('[name=gender][value=Female]+label').click()
+    browser_set.all('.custom-radio').element_by(have.texts('Female')).click()
+    '''
+
     browser_set.element('#userNumber').type("1234567891")
+
     browser_set.element('#dateOfBirthInput').click()
     browser_set.element('.react-datepicker__month-select').click()
     browser_set.element('[value="11"]').click()
     browser_set.element('.react-datepicker__year-select').click()
     browser_set.element('[value="1991"]').click()
     browser_set.element('[aria-label="Choose Monday, December 9th, 1991"]').click()
-    browser_set.element('#subjectsInput').type('HellloHello').press_enter()
-    browser_set.element('[for="hobbies-checkbox-1"]').click()
+
+    browser_set.element('#subjectsInput').type('Commerce').press_enter()
+    browser_set.element('[for=hobbies-checkbox-1]').perform(command.js.scroll_into_view)
+    browser_set.element('[for=hobbies-checkbox-1]').click()
     browser_set.element('#currentAddress').type("Republic of Belarus")
+
+    browser_set.element('#uploadPicture').send_keys(os.path.abspath('./foto.jpg'))
+
     browser_set.element('#state').click()
-    browser_set.element('#react-select-3-input').type('Uttar Pradesh').press_enter()
-    browser_set.element('#react-select-4-input').type('Merrut').press_enter()
+    browser_set.all('[id^=react-select][id*=option]').element_by(have.exact_text('Haryana')).click()
+    browser_set.element('#city').click()
+    browser_set.all('[id^=react-select][id*=option]').element_by(have.exact_text('Merrut')).click()
+
     browser_set.element('#submit').click()
-    browser_set.all('.table-responsive td:nth-child(2)').should(have.texts(
-        'Alexander',
-        'QA',
+
+    # THEN
+    browser_set.element('.table').all('td:nth-of-type(2)').should(have.texts(
+        'Ivan',
+        'Ivanov',
         'testcase@gmail.com',
-        '+375444444444',
+        'Female'
+        '1234567891',
         'HellloHello',
         'Republic of Belarus'
     ))
