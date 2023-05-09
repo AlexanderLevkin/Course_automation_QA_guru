@@ -9,6 +9,7 @@ packages = [{include = "qa_guru_course"}]
 [tool.poetry.dependencies]
 python = "^3.11"
 pytest = "^7.3.1"
+pypdf2 = "^3.0.1"
 
 
 [build-system]

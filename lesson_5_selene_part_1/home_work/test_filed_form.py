@@ -21,7 +21,7 @@ def test_student_registration_form(browser_set):
     browser_set.element('.react-datepicker__month-select').click()
     browser_set.element('[value="11"]').click()
     browser_set.element('.react-datepicker__year-select').click()
-    browser_set.element('[value="1991"]').click()
+    browser_set.element('[value=1991]').click()
     browser_set.element('[aria-label="Choose Monday, December 9th, 1991"]').click()
 
     browser_set.element('#subjectsInput').type('Commerce').press_enter()
