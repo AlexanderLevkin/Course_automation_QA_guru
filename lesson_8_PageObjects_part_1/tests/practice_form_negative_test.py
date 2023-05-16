@@ -1,4 +1,4 @@
-from lesson_7_PageObjects_part_1.demoqa_tests.model.pages import practice_form, submit
+from lesson_8_PageObjects_part_1.demoqa_tests.model.pages import practice_form
 
 
 def test_student_fail_to_register_without_required_fields_filled():
