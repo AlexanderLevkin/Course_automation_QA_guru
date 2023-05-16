@@ -1,1 +1,1 @@
-from demoqa_tests.utils import paths
+from Lesson_9_PageObject_OOP_Final.demoqa_tests.utils import paths

@@ -1,7 +1,7 @@
 from selene import have
 from selene.support.shared import browser
 
-from demoqa_tests.model.controls.table import Table
+from Lesson_9_PageObject_OOP_Final.demoqa_tests.model.controls.table import Table
 
 
 class ModalDialog:

@@ -1,5 +1,8 @@
+from Lesson_9_PageObject_OOP_Final import demoqa_tests
+
+
 def resource(relative_path):
-    import demoqa_tests
+
     from pathlib import Path
     return (
         Path(demoqa_tests.__file__)

@@ -1,4 +1,4 @@
-from demoqa_tests.model.pages.student_registration_page import StudentRegistrationForm
+from Lesson_9_PageObject_OOP_Final.demoqa_tests.model.pages.student_registration_page import StudentRegistrationForm
 
 
 class StudentRegistrationSteps:
