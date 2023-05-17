@@ -3,7 +3,7 @@ from selene.support.shared import browser
 from selene import be, have
 
 
-def test_finds_selene(browser_manager):
+def test_finds_selene():
     browser.config.hold_browser_open = True
     browser.open('https://google.com/ncr')
     browser.element('[name="q"]').should(be.blank).type('yashaka/selene').press_enter()
@@ -13,7 +13,7 @@ def test_finds_selene(browser_manager):
     results.should(have.size_greater_than_or_equal(6))
 
 
-def test_finds_selene_with_refined_query(browser_manager):
+def test_finds_selene_with_refined_query():
     browser.config.hold_browser_open = True
     browser.open('https://google.com/ncr')
     browser.element('[name="q"]').should(be.blank).type('yashaka/selene').press_enter()
