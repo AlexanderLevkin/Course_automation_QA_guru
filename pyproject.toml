@@ -11,6 +11,9 @@ python = "^3.11"
 pytest = "^7.3.1"
 pypdf2 = "^3.0.1"
 allure-pytest = "^2.13.2"
+pytest-voluptuous = "^1.2.0"
+curlify = "^2.2.1"
+xdist = "^0.0.2"
 
 
 [build-system]
